@@ -23,57 +23,57 @@ public class FlappyBird extends ApplicationAdapter {
     private final int WIDTH_VIRTUAL_VIEWPORT = 768;
     private final int HEIGHT_VIRTUAL_VIEWPORT = 1024;
 
-    SpriteBatch batch;
-	Texture imgBird[];
-    Texture background;
-    Texture imgHighTube;
-    Texture imgLowTube;
-    Texture imgGameOver;
+    private SpriteBatch batch;
+    private Texture imgBird[];
+    private Texture background;
+    private Texture imgHighTube;
+    private Texture imgLowTube;
+    private Texture imgGameOver;
 
-    int screenWidth;
-    int screenHeight;
+    private int screenWidth;
+    private int screenHeight;
 
-    int initialBirdPositionY;
-    int initialBirdPositionX;
+    private int initialBirdPositionY;
+    private int initialBirdPositionX;
 
-    int currentBirdPositionY;
-    int currentBirdPositionX;
+    private int currentBirdPositionY;
+    private int currentBirdPositionX;
 
-    int currentHighTubePositionY;
-    int currentLowTubePositionY;
+    private int currentHighTubePositionY;
+    private int currentLowTubePositionY;
 
-    int initialTubesPositionX;
-    int currentTubesPositionX;
+    private int initialTubesPositionX;
+    private int currentTubesPositionX;
 
-	int cont = 0;
+    private int cont = 0;
 
-    int variationHeightTubes = 0;
-    int fallVelocity = 0;
-    int stateGame = 0;
-    int score = 0;
-    int level = 180;
+    private int variationHeightTubes = 0;
+    private int fallVelocity = 0;
+    private int stateGame = 0;
+    private int score = 0;
+    private int level = 180;
 
-    float variantSpriteBird = 0;
-    float movementSpeedGame = 0;
+    private float variantSpriteBird = 0;
+    private float movementSpeedGame = 0;
 
-    boolean scored = false;
+    private boolean scored = false;
 
-    Random randomValue;
+    private Random randomValue;
 
-    BitmapFont fontScore;
-    BitmapFont textGameOver;
+    private BitmapFont fontScore;
+    private BitmapFont textGameOver;
 
-    GlyphLayout layoutGameOver;
+    private GlyphLayout layoutGameOver;
 
-    Rectangle rectangleHighTube;
-    Rectangle rectangleLowTube;
+    private Rectangle rectangleHighTube;
+    private Rectangle rectangleLowTube;
 
-    Circle circleBird;
+    private Circle circleBird;
 
-    ShapeRenderer shapeRenderer;
+    private ShapeRenderer shapeRenderer;
 
-    OrthographicCamera camera;
-    Viewport viewport;
+    private OrthographicCamera camera;
+    private Viewport viewport;
 
     @Override
 	public void create () {
@@ -178,7 +178,7 @@ public class FlappyBird extends ApplicationAdapter {
             currentHighTubePositionY = screenHeight/2 + 200 + variationHeightTubes;
             currentLowTubePositionY = screenHeight/2 - imgLowTube.getHeight() - 200 + variationHeightTubes;
 
-            if(currentTubesPositionX < initialBirdPositionX - imgHighTube.getWidth() && scored == false){
+            if(currentTubesPositionX < initialBirdPositionX - imgHighTube.getWidth() && !scored){
                 score++;
                 scored = true;
                 level = 180 + (10 * score);
